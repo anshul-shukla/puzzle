@@ -1,0 +1,37 @@
+<div ng-controller="MainCtrl" class="mainController">
+    <div>
+        <div class="animated fadeIn playerCreator">
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch >
+                <form name="addPlayer" ng-submit="add()">
+                    <md-input-container>
+                        <label>Player</label>
+                        <input name="favoriteColor" ng-model="name" required ng-disabled="(isBot || (players.length > 4))">
+                        <div ng-messages="addPlayer.favoriteColor.$error">
+                            <div ng-message="required">Please add player name</div>
+                        </div>
+                    </md-input-container>
+                    <md-button class="md-fab" aria-label="Eat cake" type="submit" ng-hide="(isBot || (players.length > 4))">
+                        Add
+                    </md-button>
+                </form>
+            </md-card>
+            <div ng-hide="players.length > 1" class="bot-wrap">
+                Not have Friend, Play with me.
+                <md-button ng-click="addBot()" class="md-button deep-purple" md-colors="{background: 'deep-purple'}">Add Bot</md-button>
+            </div>
+            <div class="bot-wrap">
+                <md-button ng-click="clearPlayers()" ng-show="players.length > 1"class="md-button deep-purple" md-colors="{background: 'deep-purple'}">Remove All</md-button>
+                <md-button ng-click="resume()" ng-show="resumebutton" class="md-button deep-purple" md-colors="{background: 'deep-purple'}">Resume Saved</md-button>
+            </div>
+        </div>
+    </div>
+    <div class="animated fadeIn playerList">
+        <div class="player" ng-repeat="p in players track by $index">
+            <img src="{{p.avator}}">
+            <p>{{p.name}}</p>
+        </div>
+    </div>
+    <div class="startWrap" ng-show="players.length > 1">
+        <md-button class="md-primary startGame" ng-click="startGame()">Start New Game</md-button>
+   </div>
+</div>

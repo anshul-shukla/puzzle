@@ -1,0 +1,46 @@
+<div ng-controller="GameCtrl" class="gameContainer">
+    <div class="playersContainer animated fadeIn">
+        <md-content class="player-content">
+            <md-list flex>
+            <md-subheader class="md-no-sticky">Player List</md-subheader>
+            <span ng-repeat="p in players track by $index">
+                <md-divider></md-divider>
+                <md-list-item class="md-3-line" ng-class="p.active ? 'active' : ''" >
+                    <img  class="md-avatar" src="{{p.avator}}"/>
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{p.name}}</h3>
+                        <h4>{{p.score}}</h4>
+                        <p>
+                            <span class="correctWords animated bounceIn" ng-repeat="w in p.words track by $index">{{w}}</span>
+                        </p>
+                    </div>
+                </md-list-item>
+            </span>
+        </md-content>
+        <md-card class="player game" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch ng-repeat="p in players track by $index">
+            <img src="{{p.avator}}">
+            <p ng-class="p.active ? 'active' : ''">{{p.score}}</p>
+        </md-card>
+    </div>
+    <div class="gridContainer animated fadeIn">
+        <div id="gridWrapper">
+            <span ng-repeat="grid in gridData track by $index">
+                <div class= "grid-item" ng-class="{'active': grid.active}" data-x= "{{grid.x}}" data-y= "{{grid.y}}" ng-click="selectGrid(this);">{{grid.value}}</div>
+            </span>
+        </div>
+    </div>
+    <div class="gameController animated fadeIn">
+        <md-button class="md-fab start-button" aria-label="Eat cake" ng-click="pass()">
+            Pass
+        </md-button>
+        <md-button class="md-fab submit-button" aria-label="Eat cake" ng-click="submit()">
+            Submit
+        </md-button>
+        <md-button ng-hide="isBoat" class="md-fab save-button"  md-colors="{background: 'indigo'}" aria-label="Eat cake" ng-click="save()">
+            Save
+        </md-button>
+        <md-button ng-show="resumeButton" md-colors="{background: 'deep-purple'}" class="md-fab resume-button" aria-label="Eat cake" ng-click="resume()">
+            Resume
+        </md-button>
+    </div>
+</div>
