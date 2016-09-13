@@ -14,4 +14,7 @@ for dev - `grunt serve`
 
 for Build - `grunt build`
 
-# puzzle
+Note - Service worker support is there, but for now it is commented to avoid any confusion regarding cacheing.
+you can check it out @index.html, manifest.json and sw.js.
+
+# puzzle 
