@@ -1,14 +1,17 @@
 # puzzle
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+15X15 cross puzzle
 
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
 
-## Testing
+clone - `https://github.com/anshul-shukla/puzzle.git`,
 
-Running `grunt test` will run the unit tests with karma.
-# puzzle
+`npm install && bower install`
+
+for dev - `grunt serve`
+
+for Build - `grunt build`
+
 # puzzle

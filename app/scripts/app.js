@@ -11,7 +11,6 @@
 angular
   .module('puzzleApp', [
     'ngAnimate',
-    'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
