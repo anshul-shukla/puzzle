@@ -88,6 +88,10 @@ angular.module('puzzleApp')
         // function responsible for pass functionality of game.
         $scope.pass = function() {
             $scope.activePlayer.pass = true;
+            $scope.activeGridList.map(function(g) {
+                g.active = false;
+            });
+            $scope.activeGridList = [];
             var isPassedAll = isPassedByAll();
             if (isPassedAll.length) {
                 updateActivePlayer();

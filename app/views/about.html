@@ -1,0 +1,10 @@
+<div ng-controller="AboutCtrl" class="ng-scope" style=" width: 90%; margin: 0 auto; ">
+<md-content class="_md" style=" padding: 10px 15px; ">
+    <md-list flex>
+    <md-subheader class="md-no-sticky">Help</md-subheader>
+    <span ng-repeat="p in about track by $index">
+        <md-divider></md-divider>
+        <h5>{{p}}</h5>
+    </span>
+</md-content>
+</div>
